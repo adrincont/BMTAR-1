@@ -1,8 +1,8 @@
 Package: BMTAR
 Type: Package
-Date: 2020-05-28
+Date: 2021-01-18
 Title: Bayesian Approach for MTAR Models with Missing Data
-Version: 0.1.0
+Version: 0.1.1
 Author: Valeria Bejarano Salcedo <vbejaranos@unal.edu.co>,
         Sergio Alejandro Calderon Villanueva <sacalderonv@unal.edu.co>
         Andrey Duvan Rincon Torres <adrincont@unal.edu.co>
@@ -15,6 +15,6 @@ Imports:
         Brobdingnag,MASS,MCMCpack,expm,ks,mvtnorm,compiler,doParallel,parallel,ggplot2
 LazyData: true
 NeedsCompilation: no
-Packaged: 2020-06-05 12:17:41 UTC; User
+Packaged: 2021-01-18 23:35:40 UTC; Val
 Repository: CRAN
-Date/Publication: 2020-06-09 14:00:11 UTC
+Date/Publication: 2021-01-19 05:30:02 UTC
