@@ -136,20 +136,20 @@ R1 = mtaregime(orders = list(p = 2),Phi = list(phi1 = 0.4,phi2 = 0.3),Sigma = 2)
 data = mtarsim(100,list(R1))
 ardata = arima.sim(list(ar = c(0.4,0.3),sd = 2),100)
 ggpubr::ggarrange(
-autoplot(tsregime(ardata)) + ggplot2::labs(title = 'base package'),
-autoplot(data$Sim) + ggplot2::labs(title = 'mtar package'),ncol = 2)
+  autoplot(tsregime(ardata)) + ggplot2::labs(title = 'base package'),
+  autoplot(data$Sim) + ggplot2::labs(title = 'mtar package'),ncol = 2)
 arima1 = arima(ts(data$Sim$Yt),c(2,0,0))
 parameters = list(l = 1,orders = list(pj = 2))
 initial = mtarinipars(tsregime_obj = data$Sim,list_model = list(pars = parameters))
 estim1 = mtarns(ini_obj = initial,niter = 1000,chain = TRUE)
 print.regime_model(estim1)
 ggpubr::ggarrange(
-autoplot(estim1,5) + theme(legend.position = 'none') + 
-labs(title = 'mtar package'),
-ggplot(data = NULL,aes(x = 1:100,y = data$Sim$Yt)) + 
-geom_line(col = 'black') + geom_line(data = NULL,
-aes(x = 1:100,y = fitted(arima1)),col = "blue") + theme_bw() + 
-labs(title = 'forecast package'),ncol = 2)
+  autoplot.regime_model(estim1,5) + theme(legend.position = 'none') + 
+    labs(title = 'mtar package'),
+  ggplot(data = NULL,aes(x = 1:100,y = data$Sim$Yt)) + 
+    geom_line(col = 'black') + geom_line(data = NULL,
+                                         aes(x = 1:100,y = fitted(arima1)),col = "blue") + theme_bw() + 
+    labs(title = 'forecast package'),ncol = 2)
 diagnostic_mtar(estim1)
 ```
 
